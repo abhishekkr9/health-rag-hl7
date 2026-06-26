@@ -1,0 +1,100 @@
+.bar {
+  padding: var(--space-4) var(--space-8) var(--space-4);
+  background: linear-gradient(to top, var(--color-bg) 60%, transparent);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 10;
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  background-color: var(--color-surface-solid);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inner:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-lg), 0 0 0 4px rgba(0, 112, 243, 0.1);
+  transform: translateY(-2px);
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--color-text-main);
+  resize: none;
+  line-height: 1.5;
+  padding: var(--space-2) 0;
+  overflow-y: hidden;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:disabled {
+  opacity: 0.5;
+}
+
+.send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--gradient-primary);
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.send:hover:not(:disabled) {
+  box-shadow: var(--shadow-md), 0 0 12px rgba(0, 198, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.send:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.send:disabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  box-shadow: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.send:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.3);
+}
+
+.hint {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding-bottom: var(--space-2);
+}

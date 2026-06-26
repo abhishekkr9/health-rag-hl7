@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fhir-rag-k8s-sa
+  namespace: default
+  annotations:
+    iam.gke.io/gcp-service-account: fhir-rag-sa@YOUR_PROJECT_ID.iam.gserviceaccount.com
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-api
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rag-api
+  template:
+    metadata:
+      labels:
+        app: rag-api
+    spec:
+      serviceAccountName: fhir-rag-k8s-sa
+      containers:
+      - name: rag-api
+        image: us-central1-docker.pkg.dev/YOUR_PROJECT_ID/fhir-rag-repo/rag-api:v1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: OPENROUTER_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: rag-secrets
+              key: openrouter-key
+        - name: NEO4J_URI
+          value: "bolt://10.0.2.x:7687" # REPLACE with your Neo4j Internal IP from Step 4
+        - name: NEO4J_USER
+          value: "neo4j"
+        - name: NEO4J_PASSWORD
+          value: "password" # Use SecretRef in production
+        - name: POSTGRES_URI
+          value: "postgresql://rag_user:YOUR_DB_PASSWORD@127.0.0.1:5432/langgraph_checkpoints"
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 10
+
+      # Sidecar for Cloud SQL (Secure Private IP Tunnel)
+      - name: cloud-sql-proxy
+        image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.1.0
+        args:
+        - "--private-ip"
+        - "YOUR_PROJECT_ID:us-central1:fhir-rag-db"
+        securityContext:
+          runAsNonRoot: true
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-api-ilb
+  namespace: default
+  annotations:
+    networking.gke.io/load-balancer-type: "Internal"
+spec:
+  type: LoadBalancer
+  selector:
+    app: rag-api
+  ports:
+  - port: 80
+    targetPort: 8000

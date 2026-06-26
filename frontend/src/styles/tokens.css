@@ -1,0 +1,60 @@
+:root {
+  /* ── Palette ─────────────────────────────────────────────────── */
+  /* Vibrant Light Mode for Healthcare */
+  --color-bg: #F4F7FB;           /* page background — soft cool white */
+  --color-surface: rgba(255, 255, 255, 0.75); /* glassy surface */
+  --color-surface-solid: #FFFFFF; /* solid surface */
+  --color-text-main: #111827;    /* primary text */
+  --color-text-muted: #6B7280;   /* secondary / metadata text */
+  --color-primary: #0070F3;      /* vibrant healthcare blue */
+  --color-primary-hover: #0051B3; /* darker blue for hover */
+  --color-accent: #00C6FF;       /* bright cyan accent */
+  --color-border: rgba(0, 0, 0, 0.06); /* subtle borders */
+  --color-border-focus: rgba(0, 112, 243, 0.4);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0072FF 0%, #00C6FF 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+
+  /* ── Typography ─────────────────────────────────────────────── */
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Fira Code', 'Courier New', monospace;
+
+  /* ── Type scale ─────────────────────────────────────────────── */
+  --text-xs:   0.75rem;    /* 12px  */
+  --text-sm:   0.875rem;   /* 14px  */
+  --text-base: 1rem;       /* 16px  */
+  --text-md:   1.125rem;   /* 18px  */
+  --text-lg:   1.25rem;    /* 20px  */
+  --text-xl:   1.5rem;     /* 24px  */
+  --text-2xl:  2.5rem;     /* 40px  */
+
+  /* ── Spacing ─────────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ── Layout ──────────────────────────────────────────────────── */
+  --sidebar-width:  260px;
+  --header-height:  64px;
+
+  /* ── Shape ───────────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-glow: 0 0 20px rgba(0, 198, 255, 0.4);
+}

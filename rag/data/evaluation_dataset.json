@@ -1,0 +1,18 @@
+[
+  {
+    "question": "What is the birth date of Zane918 Mante251?",
+    "ground_truth": "Zane918 Mante251 was born on 1985-08-05."
+  },
+  {
+    "question": "What is the gender of Zane918 Mante251?",
+    "ground_truth": "The gender of Zane918 Mante251 is male."
+  },
+  {
+    "question": "Was Zane918 Mante251 prescribed tramadol hydrochloride?",
+    "ground_truth": "Yes, Zane918 Mante251 was prescribed tramadol hydrochloride 50 MG Oral Tablet on 2021-11-29."
+  },
+  {
+    "question": "What is the address of Zane918 Mante251?",
+    "ground_truth": "Zane918 Mante251's address is 480 Heller Center Unit 95, Andover, MA 01810, US."
+  }
+]

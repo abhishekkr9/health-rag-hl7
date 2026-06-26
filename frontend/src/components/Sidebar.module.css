@@ -1,0 +1,110 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--color-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-5) var(--space-4);
+  flex-shrink: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02);
+}
+
+/* Session facts */
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.factLabel {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.factValue {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-main);
+  font-weight: 500;
+}
+
+/* Patient context section */
+.contextSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px dashed var(--color-border);
+}
+
+.contextLabel {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.chips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.chip {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: #0070F3;
+  background-color: rgba(0, 112, 243, 0.08);
+  border: 1px solid rgba(0, 112, 243, 0.15);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: default;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  background-color: rgba(0, 112, 243, 0.12);
+}
+
+/* Spacer pushes footer to bottom */
+.spacer {
+  flex: 1;
+}
+
+.footer {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-6);
+}
+
+.footerNote {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
