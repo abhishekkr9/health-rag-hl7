@@ -53,7 +53,7 @@ export function useChat() {
           {
             role: 'assistant',
             content:
-              "Unable to retrieve an answer. Check that the backend server is running and the GROQ_API_KEY is set.",
+              "Unable to retrieve an answer. Check that the backend server is running and the OPENROUTER_API_KEY is set.",
             streaming: false,
           },
         ])

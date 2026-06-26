@@ -142,3 +142,58 @@ flowchart TD
 *   **Encryption in transit** (HTTPS, Bolt+S, Cloud SQL Tunnel).
 *   **Encryption at rest** on all GCP storage volumes.
 *   **Principle of Least Privilege** enforced via IAM and Workload Identity.
+
+---
+
+## 🛠️ Getting Started (Local Development)
+
+To run this project locally for development or testing, follow these steps:
+
+### 1. Prerequisites
+*   [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
+*   [Python 3.11+](https://www.python.org/)
+*   [Node.js and npm](https://nodejs.org/)
+*   An **OpenRouter API Key** (Get one at [openrouter.ai](https://openrouter.ai/keys))
+
+### 2. Infrastructure Setup
+The project uses Docker Compose to manage Neo4j, PostgreSQL, Redis, and Langfuse.
+```bash
+cd rag
+docker-compose up -d
+```
+
+### 3. Backend Setup
+1.  Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+2.  Set your API key:
+    ```bash
+    export OPENROUTER_API_KEY="your_key_here"
+    ```
+3.  Start the FastAPI server:
+    ```bash
+    uvicorn server:app --reload --port 8000
+    ```
+
+### 4. Frontend Setup
+1.  Navigate to the frontend directory:
+    ```bash
+    cd ../frontend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+### 5. Running Evaluations
+To run the Ragas evaluation suite:
+```bash
+cd ../rag
+python evaluate_rag.py
+```
